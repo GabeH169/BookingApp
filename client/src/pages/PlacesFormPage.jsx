@@ -14,7 +14,7 @@ export default function PlacesFormPage() {
     const [extraInfo,setExtraInfo] = useState('');
     const [checkIn,setCheckIn] = useState('');
     const [checkOut,setCheckOut] = useState('');
-    const [maxGuest,setMaxGuest] = useState(1);
+    const [maxGuests,setMaxGuests] = useState(1);
     const [redirect,setRedirect] = useState(false);
     function inputHeader(text) {
         return (
@@ -40,7 +40,7 @@ export default function PlacesFormPage() {
         await axios.post('/places', {
             title, address, addedPhotos, 
             description, perks, extraInfo, 
-            checkIn, checkOut, maxGuest
+            checkIn, checkOut, maxGuests
         });
         setRedirect(true);
     }
@@ -85,8 +85,8 @@ export default function PlacesFormPage() {
                     </div>
                     <div>
                         <h3 className="mt-2 -mb-1">Max number of guests</h3>
-                        <input type="number" value={maxGuest} 
-                            onChange={ev => setMaxGuest(ev.target.value)}/>
+                        <input type="number" value={maxGuests} 
+                            onChange={ev => setMaxGuests(ev.target.value)}/>
                     </div>
                 </div>                      
                 <button className="primary my-4">Save</button>
